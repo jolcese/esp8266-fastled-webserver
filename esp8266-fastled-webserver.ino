@@ -55,17 +55,17 @@ ESP8266HTTPUpdateServer httpUpdateServer;
 
 #include "FSBrowser.h"
 
-#define DATA_PIN      D5
-#define LED_TYPE      WS2811
-#define COLOR_ORDER   RGB
-#define NUM_LEDS      200
+#define DATA_PIN      D3
+#define LED_TYPE      WS2812
+#define COLOR_ORDER   GRB
+#define NUM_LEDS      180
 
-#define MILLI_AMPS         2000 // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
+#define MILLI_AMPS         10000 // IMPORTANT: set the max milli-Amps of your power supply (4A = 4000mA)
 #define FRAMES_PER_SECOND  120  // here you can control the speed. With the Access Point / Web Server the animations run a bit slower.
 
 String nameString;
 
-#include "Ping.h"
+//#include "Ping.h"
 
 CRGB leds[NUM_LEDS];
 
@@ -215,6 +215,7 @@ const String paletteNames[paletteCount] = {
 #include "Fields.h"
 
 void setup() {
+
   WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP    
   WiFi.setSleepMode(WIFI_NONE_SLEEP);
 
@@ -530,7 +531,7 @@ void loop() {
     }
   }
 
-  checkPingTimer();
+  //checkPingTimer();
 
   //  handleIrInput();
 
